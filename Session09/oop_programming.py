@@ -91,3 +91,46 @@ print(psm.fullname())
 print(PersonStaticMethod.fullname(psm))
 print(psm.allowed_titles_ending_with("t"))
 print(PersonStaticMethod.allowed_titles_ending_with("t"))
+
+print("\n \nUsing property and setter")
+# using @property
+class Car(object):
+    def __init__(self):
+        self._speed = 50
+
+    @property
+    def speed(self):
+        print("The Speed is ", self._speed)
+        return self._speed
+    @speed.setter
+    def speed(self, newSpeed):
+        print("Setting to ", newSpeed)
+        self._speed = newSpeed
+mikkels_car = Car()
+mikkels_car._speed = 120
+m_speed = mikkels_car.speed
+
+print("\n \nUsing Inheritance")
+class PersonInheritance:
+    def speak(self):
+        print("I can speak many languages, including PYTHON :-)")
+
+class Student(PersonInheritance):
+    #redefine speak method from person object
+    def speak(self):
+        print("I can speak all languages")
+    def watch_movie(self):
+        print("I like to watch marvel movies")
+
+class Staff(PersonInheritance):
+    def watch_movie(self):
+        print("I like to watch science fiction")
+
+student = Student()
+student.speak()
+student.watch_movie()
+staff = Staff()
+staff.speak()
+staff.watch_movie()
+
+
